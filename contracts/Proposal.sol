@@ -21,11 +21,11 @@ contract Proposal is IProposal, Ownable {
         string memory name,
         string[] memory options
     ) external onlyOwner returns (uint index) {
-        ProposalStruct storage newProposal = proposals.push();
-
-        newProposal.name = name;
-        newProposal.options = options;
-        newProposal.isOpen = true;
+        proposals.push(ProposalStruct({
+            name: name,
+            options: options,
+            isOpen: true
+        }));
         return proposals.length - 1;
     }
 
