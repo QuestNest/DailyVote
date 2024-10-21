@@ -9,8 +9,9 @@ contract Proposal is IProposal, Ownable {
         string name;
         string[] options;
         bool isOpen;
-        mapping(uint => uint) votes;
     }
+
+    mapping(uint => mapping(address => uint)) votes;
 
     ProposalStruct[] public proposals;
 
@@ -29,8 +30,10 @@ contract Proposal is IProposal, Ownable {
     }
 
     function closeProposal(uint proposalId) external override onlyOwner {
-        
+        proposals[proposalId].isOpen = false;
     }
 
-    function castVote(uint proposalId, uint optionId) external override {}
+    function castVote(uint proposalId, uint optionId) external override {
+        votes[proposalId][msg.sender] = optionId;
+    }
 }
