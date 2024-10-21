@@ -2,13 +2,6 @@
 pragma solidity ^0.8.21;
 
 interface IProposal {
-    struct ProposalStruct {
-        string name;
-        string[] options;
-        bool isOpen;
-        mapping(uint => uint) votes;
-    }
-
     /*
      @notice Create a new public proposal.
      @param name Proposal's name - "What is the best cake?"
@@ -16,7 +9,7 @@ interface IProposal {
      @return index The index of the newly created proposal
      @dev This function should be callable only by the contract owner.
      */
-    function newProposal(
+    function createProposal(
         string memory name,
         string[] memory options
     ) external returns (uint index);

@@ -5,16 +5,32 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "./IProposal.sol";
 
 contract Proposal is IProposal, Ownable {
-    IProposal.ProposalStruct[] public proposals;
+    struct ProposalStruct {
+        string name;
+        string[] options;
+        bool isOpen;
+        mapping(uint => uint) votes;
+    }
+
+    ProposalStruct[] public proposals;
 
     constructor() Ownable(msg.sender) {}
 
-    function newProposal(
+    function createProposal(
         string memory name,
         string[] memory options
-    ) external override onlyOwner returns (uint index) {}
+    ) external onlyOwner returns (uint index) {
+        ProposalStruct storage newProposal = proposals.push();
 
-    function closeProposal(uint proposalId) external override onlyOwner {}
+        newProposal.name = name;
+        newProposal.options = options;
+        newProposal.isOpen = true;
+        return proposals.length - 1;
+    }
+
+    function closeProposal(uint proposalId) external override onlyOwner {
+        
+    }
 
     function castVote(uint proposalId, uint optionId) external override {}
 }
