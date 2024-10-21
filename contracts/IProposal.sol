@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.21;
 
+/* TODO
+Event system
+Delegate
+*/
 interface IProposal {
     /*
      @notice Create a new public proposal.
