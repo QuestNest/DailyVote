@@ -11,6 +11,7 @@ contract Proposal is IProposal, Ownable {
         bool isOpen;
     }
 
+    // vote #id => (usr #addr => his #i choice)
     mapping(uint => mapping(address => uint)) votes;
 
     ProposalStruct[] public proposals;

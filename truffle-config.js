@@ -42,7 +42,7 @@
  */
 
 // require('dotenv').config();
-// const { MNEMONIC, PROJECT_ID } = process.env;
+// const { PROJECT_ID } = process.env;
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
@@ -56,6 +56,10 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
+
+  dashboard: {
+    port: 24012,
+  },
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
