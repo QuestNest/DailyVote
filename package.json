@@ -3,5 +3,11 @@
     "@openzeppelin/contracts": "^5.1.0",
     "dotenv": "^16.4.5",
     "uws": "^200.0.0"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "ethers": "^6.13.4",
+    "hardhat": "^2.22.15",
+    "mocha": "^10.8.1"
   }
 }
