@@ -1,32 +1,54 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import { RouterLink, RouterView } from 'vue-router'
 import QuestionBox from './components/QuestionBox.vue'
+import Web3Connect from './components/Web3Connect.vue';
+
 </script>
 
-<template>
+<template class="">
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    Daily Vote
+  </header>
+  <div class="wrapper">
+    <QuestionBox question="What is your favorite color?" :votes="['Red', 'Blue', 'Yellow']" :index=0 />
+    <Web3Connect />
 
-    <div class="wrapper">
-      <QuestionBox question="What is your favorite color?" :votes="['hello','world']" :index=0 />
+  </div>
 
-      <HelloWorld msg="You did it!" />
+</template>
 
-      <nav>
+<!-- <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+      </nav> -->
 
-  <RouterView />
-</template>
 
 <style scoped>
 header {
   line-height: 1.5;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   max-height: 100vh;
+  background: linear-gradient(90deg, rgba(255, 0, 150, 0.8), rgba(0, 204, 255, 0.8));
+  color: white;
+  font-size: 2rem;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -80,7 +102,6 @@ nav a:first-of-type {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-
     padding: 1rem 0;
     margin-top: 1rem;
   }
