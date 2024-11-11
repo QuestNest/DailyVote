@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import QuestionBox from './components/QuestionBox.vue'
 </script>
 
 <template>
@@ -8,6 +9,8 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
+      <QuestionBox question="What is your favorite color?" :votes="['hello','world']" :index=0 />
+
       <HelloWorld msg="You did it!" />
 
       <nav>
